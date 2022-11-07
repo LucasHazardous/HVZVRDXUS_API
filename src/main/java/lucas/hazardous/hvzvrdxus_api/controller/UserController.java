@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import lucas.hazardous.hvzvrdxus_api.repository.UserRepository;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @RequestMapping("/api/users")
@@ -25,8 +24,8 @@ public class UserController {
     }
 
     @PostMapping("")
-    public int addUsers(@RequestBody LinkedList<User> users) {
-        return userRepository.addUsers(users);
+    public int addUser(@RequestBody User user) {
+        return userRepository.addUser(user);
     }
 
     @DeleteMapping("/{id}")

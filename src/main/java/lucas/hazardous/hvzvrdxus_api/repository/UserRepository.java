@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Repository
@@ -22,15 +21,8 @@ public class UserRepository {
         return jdbcTemplate.queryForObject("SELECT * FROM users WHERE id=?", BeanPropertyRowMapper.newInstance(User.class), id);
     }
 
-    public int addUsers(LinkedList<User> users) {
-        var res = 0;
-        for (User user: users) {
-            try {
-                var success= jdbcTemplate.update("INSERT INTO users(name, surname, email, role, password) VALUES (?, ?, ?, ? ,?)", user.getName(), user.getSurname(), user.getEmail(), user.getRole(), user.getPassword());
-                if (success == 1) res++;
-            } catch (Exception ignored) {}
-        }
-        return res;
+    public int addUser(User user) {
+        return jdbcTemplate.update("INSERT INTO users(name, surname, email, role, password) VALUES (?, ?, ?, ? ,?)", user.getName(), user.getSurname(), user.getEmail(), user.getRole(), user.getPassword());
     }
 
     public int deleteUserById(int id) {
