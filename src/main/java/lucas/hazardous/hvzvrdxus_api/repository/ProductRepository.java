@@ -30,7 +30,7 @@ public class ProductRepository {
         var res = 0;
         for (Product product: products) {
             try {
-                var success = jdbcTemplate.update("INSERT INTO product(name, price, description, category) VALUES (?, ?, ?, ?)", product.getName(), product.getPrice(), product.getDescription(), product.getCategory());
+                var success = jdbcTemplate.update("INSERT INTO product(name, price, description, category, image) VALUES (?, ?, ?, ?, ?)", product.getName(), product.getPrice(), product.getDescription(), product.getCategory(), product.getImage());
                 if (success == 1) res++;
             } catch (Exception ignored) {
 
@@ -40,6 +40,6 @@ public class ProductRepository {
     }
 
     public int updateProduct(int id, Product product) {
-        return jdbcTemplate.update("UPDATE product SET name=?, price=?, description=?, category=? WHERE id = ?", product.getName(), product.getPrice(), product.getDescription(), product.getCategory(), id);
+        return jdbcTemplate.update("UPDATE product SET name=?, price=?, description=?, category=?, image=? WHERE id = ?", product.getName(), product.getPrice(), product.getDescription(), product.getCategory(), product.getImage(), id);
     }
 }

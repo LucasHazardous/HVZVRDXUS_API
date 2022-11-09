@@ -55,6 +55,7 @@ public class ProductController {
             if(product.getPrice() == 0f) product.setPrice(productCheck.getPrice());
             if(product.getCategory() == 0) product.setCategory(productCheck.getCategory());
             if(product.getDescription() == null) product.setDescription(productCheck.getDescription());
+            if(product.getImage() == null) product.setImage(productCheck.getImage());
             product.setId(id);
 
             productRepository.updateProduct(id, product);
