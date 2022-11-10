@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @PostMapping("")
-    public int addProducts(@RequestBody LinkedList<Product> products) {
-        return productRepository.addProducts(products);
+    public int addProduct(@RequestBody Product product) {
+        return productRepository.addProduct(product);
     }
 
     @PutMapping("/{id}")

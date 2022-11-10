@@ -26,17 +26,8 @@ public class ProductRepository {
         return jdbcTemplate.update("DELETE FROM product WHERE id = ?", id);
     }
 
-    public int addProducts(LinkedList<Product> products) {
-        var res = 0;
-        for (Product product: products) {
-            try {
-                var success = jdbcTemplate.update("INSERT INTO product(name, price, description, category, image) VALUES (?, ?, ?, ?, ?)", product.getName(), product.getPrice(), product.getDescription(), product.getCategory(), product.getImage());
-                if (success == 1) res++;
-            } catch (Exception ignored) {
-
-            }
-        }
-        return res;
+    public int addProduct(Product product) {
+        return jdbcTemplate.update("INSERT INTO product(name, price, description, category, image) VALUES (?, ?, ?, ?, ?)", product.getName(), product.getPrice(), product.getDescription(), product.getCategory(), product.getImage());
     }
 
     public int updateProduct(int id, Product product) {
