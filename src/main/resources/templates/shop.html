@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop</title>
+</head>
+<body>
+    <tr th:each="product: ${products}">
+        <td>
+            <h2 th:text="${product.name}"></h2>
+            <h3 th:text="${product.price}"></h3>
+            <p th:text="${product.description}"></p>
+            <img th:src="${product.image}" width="200">
+        </td>
+    </tr>
+</body>
+</html>
