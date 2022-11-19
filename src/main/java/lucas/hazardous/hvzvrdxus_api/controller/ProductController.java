@@ -1,11 +1,10 @@
 package lucas.hazardous.hvzvrdxus_api.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import lucas.hazardous.hvzvrdxus_api.model.Product;
 import lucas.hazardous.hvzvrdxus_api.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @RequestMapping("/api/products")
