@@ -9,10 +9,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Order {
-    private int id;
+public class CartOrder {
     private int user_id;
     private List<Integer> product_ids;
     private String address;
-    private boolean sent;
 }
